@@ -30,22 +30,17 @@ class App extends React.Component {
     });
     this.setState({ loadImages: response.data.map((arr) => arr.urls.thumb) });
 
-    // this.setState({ loadImages: response.data });
     console.log(this.state.loadImages.length);
     // console.log(response);
   };
 
-  ///////////////////////////////////////////
-
   // animation
   componentDidMount() {
     this.onPhoto();
-    ////////////
 
     const tl = gsap.timeline();
     tl.to(".loading-2", 2.4, {
       width: "100%",
-      // height: "100%",
       ease: "Expo.easeInOut",
       onComplete: () => {
         this.setState({ loader: true });
@@ -113,7 +108,6 @@ class App extends React.Component {
           </div>
         </div>
 
-        {/* /// */}
         {/* <!-- coverter --> */}
         <div className="container">
           <div className="converter">
@@ -127,13 +121,15 @@ class App extends React.Component {
                 Choose the currency and the amounts to get the exchange rate
               </p>
             </div>
-            <div className="converter__box">
+            <div className="converter__box converter__box2">
               <div className="ui container" style={{ marginTop: "30px" }}>
                 <SearchBar onSubmit={this.onSearchSubmit} />
                 <ImageList images={this.state.images} />
               </div>
             </div>
-            {/* <div className="converter__box"></div> */}
+            <div className="converter__box converter__box3">
+              <span>&copy;</span> Copyright 2020
+            </div>
           </div>
         </div>
       </>

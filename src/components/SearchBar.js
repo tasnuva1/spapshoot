@@ -11,18 +11,26 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="ui segment">
-        <form onSubmit={this.onFormSumit} className="ui form" action="">
-          <div className="field">
-            <label>Image Search</label>
-            <input
-              placeholder="Search"
-              type="text"
-              value={this.state.term}
-              onChange={(e) => this.setState({ term: e.target.value })}
-            />
-          </div>
-        </form>
+      <div class="flexsearch">
+        <div class="flexsearch--wrapper">
+          <form
+            onSubmit={this.onFormSumit}
+            class="flexsearch--form"
+            action=""
+            // method="post"
+          >
+            <div class="flexsearch--input-wrapper">
+              <input
+                class="flexsearch--input"
+                placeholder="Images Search"
+                type="text"
+                value={this.state.term}
+                onChange={(e) => this.setState({ term: e.target.value })}
+              />
+            </div>
+            <input class="flexsearch--submit" type="submit" value="&#10140;" />
+          </form>
+        </div>
       </div>
     );
   }

@@ -1,12 +1,27 @@
 .converter {
-  grid-column: 3/13;
+  // grid-column: 3/13;
+  width: 85%;
+  margin: auto;
+
   background-color: white;
   padding: 5rem 3rem 2rem 5rem;
   color: black;
-
-  display: flex;
-  justify-content: space-between;
   align-items: top;
+
+  .converter__box2 {
+    align-items: center;
+  }
+
+  .converter__box3 {
+    padding-top: 30rem;
+    padding-bottom: 5rem;
+    text-align: center;
+
+    span {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+  }
 
   @media only screen and (max-width: 37.5em) {
     // phone
@@ -68,12 +83,12 @@
       }
     }
 
-    input {
-      @extend select;
-      cursor: text;
-      margin-bottom: 2rem;
-      outline: none;
-    }
+    // input {
+    //   @extend select;
+    //   cursor: text;
+    //   margin-bottom: 2rem;
+    //   outline: none;
+    // }
 
     .amount {
       @extend .heading-2;
