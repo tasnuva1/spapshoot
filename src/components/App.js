@@ -10,27 +10,42 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { images: [], loader: false };
+    this.state = { images: [], loader: false, loadImages: [] };
 
     this.imageRef = React.createRef();
   }
 
   onSearchSubmit = async (term) => {
     const response = await unsplash.get("/search/photos", {
-      params: { query: term },
+      params: { query: term, per_page: 100 },
     });
 
     this.setState({ images: response.data.results });
-    console.log(response);
+    // console.log(response);
+  };
+
+  onPhoto = async (term) => {
+    const response = await unsplash.get("/photos", {
+      params: { per_page: 30 },
+    });
+    this.setState({ loadImages: response.data.map((arr) => arr.urls.thumb) });
+
+    // this.setState({ loadImages: response.data });
+    console.log(this.state.loadImages.length);
+    // console.log(response);
   };
 
   ///////////////////////////////////////////
 
   // animation
   componentDidMount() {
+    this.onPhoto();
+    ////////////
+
     const tl = gsap.timeline();
-    tl.to(".loading-2", 4, {
+    tl.to(".loading-2", 2.4, {
       width: "100%",
+      // height: "100%",
       ease: "Expo.easeInOut",
       onComplete: () => {
         this.setState({ loader: true });
@@ -68,268 +83,58 @@ class App extends React.Component {
           className="loading-box"
           style={this.state.loader ? { opacity: "0" } : { opacity: "1" }}
         ></div>
-        <div class="hero__rates ani">
-          <div className="table-wrapper">
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">AED</td>
-                <td>ExampleAED</td>
-              </tr>
-              <tr>
-                <td class="code">ARS</td>
-                <td>ExampleARS</td>
-              </tr>
-              <tr>
-                <td class="code">AUD</td>
-                <td>ExampleAUD</td>
-              </tr>
-              <tr>
-                <td class="code">BGN</td>
-                <td>ExampleBGN</td>
-              </tr>
-              <tr>
-                <td class="code">BRL</td>
-                <td>ExampleBRL</td>
-              </tr>
-              <tr>
-                <td class="code">BSD</td>
-                <td>ExampleBSD</td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">CAD</td>
-                <td>ExampleCAD</td>
-              </tr>
-              <tr>
-                <td class="code">CHF</td>
-                <td>ExampleCHF</td>
-              </tr>
-              <tr>
-                <td class="code">CLP</td>
-                <td>ExampleCLP</td>
-              </tr>
-              <tr>
-                <td class="code">CNY</td>
-                <td>ExampleCNY</td>
-              </tr>
-              <tr>
-                <td class="code">COP</td>
-                <td>ExampleCOP</td>
-              </tr>
-              <tr>
-                <td class="code">CZK</td>
-                <td>ExampleCZK</td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">DKK</td>
-                <td>ExampleDKK</td>
-              </tr>
-              <tr>
-                <td class="code">DOP</td>
-                <td>ExampleDOP</td>
-              </tr>
-              <tr>
-                <td class="code">EGP</td>
-                <td>ExampleEGP</td>
-              </tr>
-              <tr>
-                <td class="code">EUR</td>
-                <td>ExampleEUR</td>
-              </tr>
-              <tr>
-                <td class="code">FJD</td>
-                <td>ExampleFJD</td>
-              </tr>
-              <tr>
-                <td class="code">GBP</td>
-                <td>ExampleGBP</td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">GTQ</td>
-                <td>ExampleGTQ</td>
-              </tr>
-              <tr>
-                <td class="code">HKD</td>
-                <td>ExampleHKD</td>
-              </tr>
-              <tr>
-                <td class="code">HRK</td>
-                <td>ExampleHRK</td>
-              </tr>
-              <tr>
-                <td class="code">HUF</td>
-                <td>ExampleHUF</td>
-              </tr>
-              <tr>
-                <td class="code">IDR</td>
-                <td>ExampleIDR</td>
-              </tr>
-              <tr>
-                <td class="code">ILS</td>
-                <td>ExampleILS</td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">INR</td>
-                <td>ExampleINR</td>
-              </tr>
-              <tr>
-                <td class="code">ISK</td>
-                <td>ExampleISK</td>
-              </tr>
-              <tr>
-                <td class="code">JPY</td>
-                <td>ExampleJPY</td>
-              </tr>
-              <tr>
-                <td class="code">KRW</td>
-                <td>ExampleKRW</td>
-              </tr>
-              <tr>
-                <td class="code">KZT</td>
-                <td>ExampleKZT</td>
-              </tr>
-              <tr>
-                <td class="code">MXN</td>
-                <td>ExampleMXN</td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">MYR</td>
-                <td>ExampleMYR</td>
-              </tr>
-              <tr>
-                <td class="code">NOK</td>
-                <td>ExampleNOK</td>
-              </tr>
-              <tr>
-                <td class="code">NZD</td>
-                <td>ExampleNZD</td>
-              </tr>
-              <tr>
-                <td class="code">PAB</td>
-                <td>ExamplePAB</td>
-              </tr>
-              <tr>
-                <td class="code">PEN</td>
-                <td>ExamplePEN</td>
-              </tr>
-              <tr>
-                <td class="code">PHP</td>
-                <td>ExamplePHP</td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">PKR</td>
-                <td>ExamplePKR</td>
-              </tr>
-              <tr>
-                <td class="code">PLN</td>
-                <td>ExamplePLN</td>
-              </tr>
-              <tr>
-                <td class="code">PYG</td>
-                <td>ExamplePYG</td>
-              </tr>
-              <tr>
-                <td class="code">RON</td>
-                <td>ExampleRON</td>
-              </tr>
-              <tr>
-                <td class="code">RUB</td>
-                <td>ExampleRUB</td>
-              </tr>
-              <tr>
-                <td class="code">SAR</td>
-                <td>ExampleSAR</td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">SEK</td>
-                <td>ExampleSEK</td>
-              </tr>
-              <tr>
-                <td class="code">SGD</td>
-                <td>ExampleSGD</td>
-              </tr>
-              <tr>
-                <td class="code">THB</td>
-                <td>ExampleTHB</td>
-              </tr>
-              <tr>
-                <td class="code">TRY</td>
-                <td>ExampleTRY</td>
-              </tr>
-              <tr>
-                <td class="code">TWD</td>
-                <td>ExampleTWD</td>
-              </tr>
-              <tr>
-                <td class="code">UAH</td>
-                <td>ExampleUAH</td>
-              </tr>
-            </table>
-            <table>
-              <tr>
-                <th>currency code</th>
-                <th>currency Rate</th>
-              </tr>
-              <tr>
-                <td class="code">UYU</td>
-                <td>ExampleUYU</td>
-              </tr>
-              <tr>
-                <td class="code">ZAR</td>
-                <td>ExampleZAR</td>
-              </tr>
-            </table>
+
+        <MainHead />
+        <div className="container">
+          <div className="hero">
+            <div className="hero__heading">
+              <h1 className="heading-1">
+                Raba Live
+                <br /> Exchange Rates
+              </h1>
+              <p className="date">23rd September 2020</p>
+            </div>
+            <div className="hero__rates">
+              {/* // ani */}
+              <div className="table-wrapper">
+                {this.state.loadImages.map((image) => {
+                  return (
+                    <table>
+                      <tr>
+                        <th>
+                          <img src={image} alt="Don't-gonna-do-extra-styff" />
+                        </th>
+                      </tr>
+                    </table>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
-        <MainHead />
-        <div className="ui container" style={{ marginTop: "30px" }}>
-          <SearchBar onSubmit={this.onSearchSubmit} />
-          <ImageList images={this.state.images} />
+
+        {/* /// */}
+        {/* <!-- coverter --> */}
+        <div className="container">
+          <div className="converter">
+            <div className="converter__box">
+              <h2 className="heading-2">
+                currency
+                <br />
+                converter
+              </h2>
+              <p className="paragraph">
+                Choose the currency and the amounts to get the exchange rate
+              </p>
+            </div>
+            <div className="converter__box">
+              <div className="ui container" style={{ marginTop: "30px" }}>
+                <SearchBar onSubmit={this.onSearchSubmit} />
+                <ImageList images={this.state.images} />
+              </div>
+            </div>
+            {/* <div className="converter__box"></div> */}
+          </div>
         </div>
       </>
     );
