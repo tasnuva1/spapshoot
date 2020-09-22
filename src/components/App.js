@@ -37,7 +37,7 @@ class App extends React.Component {
     });
     this.setState({ loadImages: response.data.map((arr) => arr.urls.thumb) });
 
-    console.log(this.state.loadImages.length);
+    // console.log(this.state.loadImages.length);
     // console.log(response);
   };
 
