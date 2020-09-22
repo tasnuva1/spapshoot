@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
             <div class="flexsearch--input-wrapper">
               <input
                 class="flexsearch--input"
-                placeholder="Images Search"
+                placeholder="Search..."
                 type="text"
                 value={this.state.term}
                 onChange={(e) => this.setState({ term: e.target.value })}

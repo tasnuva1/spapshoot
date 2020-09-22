@@ -3,7 +3,8 @@ import React from "react";
 // import "../index";
 import "../components/App";
 
-import logo from "../img/svg/brand-logo.svg";
+import logo from "../img/svg/spapshoot.svg";
+// import logo from "../img/svg/brand-logo.svg";
 
 const MainHead = (props) => {
   return (
@@ -24,8 +25,8 @@ const MainHead = (props) => {
         <nav class="nav">
           <img src={logo} alt="raba logo" class="brand-logo" />
           <div class="baseBox">
-            <h3 class="heading-3">base currency</h3>
-            <p class="usd">usd</p>
+            <h3 class="heading-3">base Images</h3>
+            <p class="usd">usa</p>
           </div>
         </nav>
 

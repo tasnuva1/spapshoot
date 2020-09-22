@@ -10,7 +10,14 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { images: [], loader: false, loadImages: [] };
+    this.state = {
+      images: [],
+      loader: false,
+      loadImages: [],
+      dayOfMonth: null,
+      curMonth: null,
+      curYear: null,
+    };
 
     this.imageRef = React.createRef();
   }
@@ -26,7 +33,7 @@ class App extends React.Component {
 
   onPhoto = async (term) => {
     const response = await unsplash.get("/photos", {
-      params: { per_page: 30 },
+      params: { per_page: 100 }, // num
     });
     this.setState({ loadImages: response.data.map((arr) => arr.urls.thumb) });
 
@@ -36,6 +43,7 @@ class App extends React.Component {
 
   // animation
   componentDidMount() {
+    this.tick();
     this.onPhoto();
 
     const tl = gsap.timeline();
@@ -71,6 +79,53 @@ class App extends React.Component {
       });
   }
 
+  ////////////////
+
+  tick = () => {
+    let objToday = new Date();
+    let domEnder = new Array(
+      "th",
+      "st",
+      "nd",
+      "rd",
+      "th",
+      "th",
+      "th",
+      "th",
+      "th",
+      "th"
+    );
+    this.setState({
+      dayOfMonth:
+        objToday.getDate() < 10
+          ? "0" + objToday.getDate() + domEnder[objToday.getDate()]
+          : objToday.getDate() +
+            domEnder[
+              parseFloat(
+                ("" + objToday.getDate()).substr(
+                  ("" + objToday.getDate()).length - 1
+                )
+              )
+            ],
+    });
+    let months = new Array(
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    );
+    this.setState({ curMonth: months[objToday.getMonth()] });
+    this.setState({ curYear: objToday.getFullYear() });
+  };
+
   render() {
     return (
       <>
@@ -84,10 +139,11 @@ class App extends React.Component {
           <div className="hero">
             <div className="hero__heading">
               <h1 className="heading-1">
-                Raba Live
-                <br /> Exchange Rates
+                Spapshoot Live
+                <br /> Photography
               </h1>
-              <p className="date">23rd September 2020</p>
+              {/* <p className="date">23rd September 2020</p> */}
+              <p className="date">{`${this.state.dayOfMonth} ${this.state.curMonth} ${this.state.curYear}`}</p>
             </div>
             <div className="hero__rates">
               {/* // ani */}
@@ -113,12 +169,14 @@ class App extends React.Component {
           <div className="converter">
             <div className="converter__box">
               <h2 className="heading-2">
-                currency
+                Images
                 <br />
-                converter
+                Search Tool
               </h2>
               <p className="paragraph">
-                Choose the currency and the amounts to get the exchange rate
+                {/* Choose the currency and the amounts to get the exchange rate */}
+                Search any images from the internet’s source of freely-usable
+                images.
               </p>
             </div>
             <div className="converter__box converter__box2">
@@ -128,7 +186,7 @@ class App extends React.Component {
               </div>
             </div>
             <div className="converter__box converter__box3">
-              <span>&copy;</span> Copyright 2020
+              <span>&copy;</span> Copyright {`${this.state.curYear}`}
             </div>
           </div>
         </div>
