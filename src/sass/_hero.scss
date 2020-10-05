@@ -114,14 +114,32 @@ input:-moz-placeholder {
   display: flex;
   align-items: center;
 
-  .brand-logo {
+  .brand-logo1 {
+    // margin-right: auto;
+    // height: 2.2rem;
+    // font-size: 0.6rem;
+    height: 5.9rem;
+    padding-bottom: 2.4rem;
+    padding-top: 0.5rem;
+    padding-left: 0.6rem;
+  }
+
+  .logo {
+    height: 7rem;
+    padding-bottom: 1rem;
+  }
+
+  .brand-logo-container {
     margin-right: auto;
-    height: 2.2rem;
+    // height: 3.4rem;
+    text-align: center;
+    // padding-bottom: rem;
   }
 
   .baseBox {
     display: flex;
     align-items: center;
+    padding-bottom: 1rem;
   }
 
   .usd {

@@ -4,6 +4,8 @@ import React from "react";
 import "../components/App";
 
 import logo from "../img/svg/spapshoot.svg";
+import favicon from "../img/svg/favicon1.svg";
+
 // import logo from "../img/svg/brand-logo.svg";
 
 const MainHead = (props) => {
@@ -23,7 +25,10 @@ const MainHead = (props) => {
       <div class="container">
         {/* <!-- nav --> */}
         <nav class="nav">
-          <img src={logo} alt="raba logo" class="brand-logo" />
+          <div className="brand-logo-container">
+            <img src={favicon} alt="logo" className="logo" />
+            <img src={logo} alt="raba logo" class="brand-logo1" />
+          </div>
           <div class="baseBox">
             <h3 class="heading-3">base Images</h3>
             <p class="usd">usa</p>
