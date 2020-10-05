@@ -27,7 +27,7 @@
 }
 
 .flexsearch--input-wrapper {
-  padding: 0 66px 0 0; /* Right padding for submit button width */
+  padding: 0 66px 0 0;
   overflow: hidden;
 }
 
@@ -39,7 +39,6 @@
  * Configurable Styles *
  ***********************/
 .flexsearch {
-  // padding: 0 25px 0 200px; /* Padding for other horizontal elements */
   padding-bottom: 5rem;
 }
 
@@ -49,13 +48,11 @@
   box-sizing: content-box;
   height: 60px;
   padding: 0 46px 0 10px;
-  // border-color: #888;
   border-color: #0a1733;
-  border-radius: 35px; /* (height/2) + border-width */
+  border-radius: 35px;
   border-style: solid;
   border-width: 5px;
   margin-top: 15px;
-  // color: #333;
   color: #617db9;
   font-family: "Helvetica", sans-serif;
   font-size: 26px;
@@ -72,10 +69,9 @@
   height: 60px;
   padding: 0;
   border: none;
-  margin-top: 20px; /* margin-top + border-width */
-  margin-right: 5px; /* border-width */
+  margin-top: 20px;
+  margin-right: 5px;
   background: transparent;
-  // color: #888;
   color: #0a1733;
   font-family: "Helvetica", sans-serif;
   font-size: 40px;
@@ -97,7 +93,6 @@
 }
 
 ::-webkit-input-placeholder {
-  // color: #14213d;
   color: #2a3b5f; // C
 }
 
@@ -115,9 +110,6 @@ input:-moz-placeholder {
   align-items: center;
 
   .brand-logo1 {
-    // margin-right: auto;
-    // height: 2.2rem;
-    // font-size: 0.6rem;
     height: 5.9rem;
     padding-bottom: 2.4rem;
     padding-top: 0.5rem;
@@ -131,9 +123,7 @@ input:-moz-placeholder {
 
   .brand-logo-container {
     margin-right: auto;
-    // height: 3.4rem;
     text-align: center;
-    // padding-bottom: rem;
   }
 
   .baseBox {
@@ -188,7 +178,6 @@ input:-moz-placeholder {
     padding: 2rem 4rem;
     text-transform: uppercase;
     background-color: #14213d;
-    // color: #2c0db5;
     color: #fff;
     margin-top: 2rem;
     font-family: $secondary-font;
@@ -246,7 +235,6 @@ input:-moz-placeholder {
 
     .table-wrapper {
       display: flex;
-      // animation: swipe 30s infinite alternate ease-in-out;
       animation: swipe 70s infinite alternate ease-in-out;
       table {
         border-spacing: 1rem;
@@ -254,18 +242,13 @@ input:-moz-placeholder {
         margin-right: 1rem;
         tr {
           th {
-            // text-transform: capitalize;
-            // color: #567dfd;
             text-align: left;
-            // padding-right: 1rem;
           }
           td {
             padding: 1rem 0;
-            // font-size: 1.3rem;
           }
           .code {
             color: $primary-color;
-            // font-size: 1.5rem;
           }
         }
       }
@@ -279,7 +262,6 @@ input:-moz-placeholder {
     transform: translateX(15%);
   }
   to {
-    // transform: translateX(-110%);
     transform: translateX(-470%);
   }
 }

@@ -1,5 +1,4 @@
 .converter {
-  // grid-column: 3/13;
   width: 85%;
   margin: auto;
 
@@ -83,16 +82,8 @@
       }
     }
 
-    // input {
-    //   @extend select;
-    //   cursor: text;
-    //   margin-bottom: 2rem;
-    //   outline: none;
-    // }
-
     .amount {
       @extend .heading-2;
-      //   background-image: url("../img/svg/rate-vector.svg"); // C
       padding-bottom: 5rem;
       background-repeat: no-repeat;
       background-position-y: 54%;

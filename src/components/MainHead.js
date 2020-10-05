@@ -1,12 +1,8 @@
-// import "./ImageList.css";
 import React from "react";
-// import "../index";
 import "../components/App";
 
 import logo from "../img/svg/spapshoot.svg";
 import favicon from "../img/svg/favicon1.svg";
-
-// import logo from "../img/svg/brand-logo.svg";
 
 const MainHead = (props) => {
   return (

@@ -28,7 +28,6 @@ class App extends React.Component {
     });
 
     this.setState({ images: response.data.results });
-    // console.log(response);
   };
 
   onPhoto = async (term) => {
@@ -36,9 +35,6 @@ class App extends React.Component {
       params: { per_page: 100 }, // num
     });
     this.setState({ loadImages: response.data.map((arr) => arr.urls.thumb) });
-
-    // console.log(this.state.loadImages.length);
-    // console.log(response);
   };
 
   // animation
@@ -142,7 +138,6 @@ class App extends React.Component {
                 Spapshoot Live
                 <br /> Photography
               </h1>
-              {/* <p className="date">23rd September 2020</p> */}
               <p className="date">{`${this.state.dayOfMonth} ${this.state.curMonth} ${this.state.curYear}`}</p>
             </div>
             <div className="hero__rates">
