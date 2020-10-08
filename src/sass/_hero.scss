@@ -54,7 +54,7 @@
   border-width: 5px;
   margin-top: 15px;
   color: #617db9;
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Helvetica', sans-serif;
   font-size: 26px;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -73,9 +73,13 @@
   margin-right: 5px;
   background: transparent;
   color: #0a1733;
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Helvetica', sans-serif;
   font-size: 40px;
   line-height: 60px;
+}
+
+.flexsearch--submit:focus {
+  outline: 0 !important;
 }
 
 .flexsearch--input:focus {
@@ -139,7 +143,7 @@ input:-moz-placeholder {
     color: #2a3b5f;
     text-transform: uppercase;
     font-size: 1rem;
-    background-image: url("../img/png/usa-flag.png"); // C
+    background-image: url('../img/png/usa-flag.png'); // C
     background-repeat: no-repeat;
     background-position: 68% 48%;
   }
@@ -203,7 +207,7 @@ input:-moz-placeholder {
     }
 
     &::before {
-      content: "";
+      content: '';
       display: block;
       height: 100%;
       width: 100%;
@@ -218,7 +222,7 @@ input:-moz-placeholder {
       z-index: 1;
     }
     &::after {
-      content: "";
+      content: '';
       display: block;
       height: 100%;
       width: 100%;
